@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form id="formLogin" class="form-horizontal" role="form"
+                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                >
+                <div  class="form-cadastro">
+                    <h4><i class="glyphicon glyphicon-lock"></i> Área do assinante <a class="link-secundario link-p" href="/logout">Sair</a></h4>
+                    <hr>
+                    <h5>Dados alterados com sucesso!</h5>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nome<span class="asterisco">*</span></label>
+                        <div class="col-sm-9">
+                            <p style="margin-top: 7px;"><?php echo $this->view->usuario['nome'] ?></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email<span class="asterisco">*</span></label>
+                        <div class="col-sm-9">
+                            <p style="margin-top: 7px;"><?php echo $this->view->usuario['email'] ?></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Celular</label>
+                        <div class="col-sm-5">
+                            <p style="margin-top: 7px;"><?php echo $this->view->usuario['celular'] ?></p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Mailing</label>
+                        <div class="checkbox col-sm-5 sem-padding">
+                            <p style="margin-top: 2px;margin-left: 15px;">
+                                <?php
+                                    if($this->view->usuario['mailing'] == 1)
+                                    {
+                                        $cor = "color: green;";
+                                        $icon = "glyphicon-ok";
+                                    }
+                                    else {
+                                        $cor = "color: red;";
+                                        $icon = "glyphicon-remove";
+                                    }
+                                ?>
+                                <i class="glyphicon <?php echo $icon; ?>" style="<?php echo $cor; ?>"></i> Receber notícias
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12" style="padding-right:20px;">
+                            <a class="btn btn-principal" style="margin-right: 0;" href="msg_acesso_ok.html">Prosseguir</a>
+                            <a class="btn btn-default" href="/assinante">Alterar</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

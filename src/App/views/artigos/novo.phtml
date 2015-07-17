@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form method="post" id="formLogin" class="form-horizontal" role="form"
+                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                >
+                <div  class="form-cadastro">
+                    <h4><i class="glyphicon glyphicon-user"></i> Novo Artigo <span class="observacao-usuarios">*Campos obrigatórios</span></h4>
+                    <hr>
+                    <p>Preencha corretamente os campos abaixo para cadastrar o artigo:</p>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Título<span class="asterisco">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" name="titulo" class="form-control" placeholder="Titulo do Artigo"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe o titulo!"
+
+                                />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Texto<span class="asterisco">*</span></label>
+                        <div class="col-sm-9">
+                            <textarea name="texto" placeholder="Texto do Artigo" class="form-control"
+                                      data-bv-notempty="true"
+                                      data-bv-notempty-message="Por favor informe o texto!"
+                                ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Status</label>
+                        <div class="checkbox col-sm-5 sem-padding">
+                        <input type="checkbox" name="mailing" value="1"> Ativo
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-12" style="padding-right:20px;">
+                            <button type="submit" class="btn btn-principal">Confirmar</button>
+                            <button type="reset" class="btn btn-default">Restaurar</button>
+
+                        </div>
+                    </div>
+                </div>
+            </form><p></p>
+            <a href="/artigos" class="btn btn-info">Voltar</a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<h1>Bem-vindo!</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <form method="post" id="formLogin" class="form-horizontal" role="form"
+                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                >
+                <div  class="form-login">
+                    <h4><i class="glyphicon glyphicon-user"></i> Identifique-se</h4>
+                    <?php if($this->view->erro == true){ ?>
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Erro!</strong> Usuário e/ou senha inválidos!
+                        </div>
+                    <?php } ?>
+                    <div class="form-group">
+                        <label for="usuario" class="col-sm-2 control-label">Login</label>
+                        <div class="col-sm-9">
+                            <input type="text" style="width: 227px;" id="usuario" name="email" class="form-control required" placeholder="E-mail/login" required="required"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe o email!"
+                                />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="senha" class="col-sm-2 control-label">Senha</label>
+                        <div class="col-sm-6" style="padding-right: 0;">
+                            <input type="password" id="senha" name="senha" class="form-control required" placeholder="Senha" required="required"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe a senha!"/>
+                        </div>
+
+                            <button type="submit" class="btn btn-principal">Entrar</button>
+
+                    </div>
+
+                    <div class="row box-infos-login">
+                        <div class="col-sm-6">
+                            <p class="checkbox-memorizar"><input type="checkbox" id="memorizar" name="memorizar" /> <label class="label-memorizar">Memorizar</label></p>
+                        </div>
+                        <div class="col-sm-6" style="text-align: right;padding-right: 0;">
+                            <a href="/usuario/esqueceu">Esqueci minha senha</a>
+                        </div>
+
+                    </div>
+
+                </div>
+                <p class="rodape-login">Ainda não é cadastrado? <a href="usuario/cadastro">Inscreva-se agora</a></p>
+            </form>
+        </div>
+    </div>
+</div>

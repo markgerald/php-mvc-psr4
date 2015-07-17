@@ -1,0 +1,140 @@
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.logo {
+    margin: 0 auto;
+}
+
+h1 {
+    /*color: #ffffff;*/
+    text-align: center;
+    font-size: 26px;
+}
+
+h5 {
+    font-size: 16px;
+    color: #77AF20;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.link-secundario {
+    color: #808285;
+}
+
+.link-secundario:hover {
+    color:#58595B;
+}
+
+.link-padrao {
+    color:#3E618E;
+}
+
+.link-padrao:hover {
+    color:#25385B;
+}
+
+.link-p {
+    font-size: 12px;
+    float: right;
+}
+
+p {
+    text-align: left;
+}
+
+.btn-principal {
+    background-color: #3E618E;
+    color: #ffffff;
+    float: right;
+    margin-right: 28px;
+    margin-left: 10px;
+}
+
+.btn-principal:hover {
+    background-color: #25385B;
+    color: #ffffff;
+}
+
+.btn-default {
+    float: right;
+}
+
+.form-login, .form-cadastro {
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 0 10px 0 #e6e7e8 inset;
+    display: table;
+    margin: 20px auto 0;
+    padding: 20px 30px 20px 35px;
+    
+}
+
+.form-login {
+    width: 360px;
+}
+
+.form-cadastro {
+    width: 100%;
+}
+
+.sem-padding {
+    padding-left: 0;
+}
+
+.observacao-usuarios {
+    font-size: 11px;
+    margin:0px 10px 20px;
+    text-align: right;
+    float: right;
+    color:#939598;
+}
+
+.icone-tooltip {
+    font-size: 11px;
+    color:#ccc;
+    text-align: left;
+    float: left;
+    margin-top: 5px;
+}
+
+label {
+    text-align: left !important;
+}
+
+h4 {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.navbar-inverse {
+    background-color: #25385B;
+    
+}
+
+.box-infos-login {
+    float: left;
+    width: 100%;
+    
+}
+
+.box-infos-login p, .box-infos-login a {
+    color: #000000 !important;
+    font-size: 11px;
+}
+
+.rodape-login {
+    color: #939598;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.checkbox-memorizar input[type="checkbox"] {
+    margin-top: 5px;
+}

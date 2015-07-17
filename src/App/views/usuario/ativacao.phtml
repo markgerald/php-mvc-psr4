@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-cadastro">
+
+                <?php if($this->view->erro == true){ ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+
+                        <strong>Erro!</strong> Este cadastro já foi ativado!
+                    </div>
+                <?php } else {?>
+
+                <h4><i class="glyphicon glyphicon-lock"></i> Área do assinante <a class="link-secundario link-p" href="/logout">Sair</a></h4>
+                <hr>
+                <p>Parabéns! Os recursos de sua conta já estão liberados!</p>
+                <h5>Aproveite bem e bom trabalho!</h5>
+                <div class="row">
+                    <div class="col-md-12" style="margin-top: 20px;">
+                        <p style="text-align: center;"><a href="/assinante" class="link-padrao"><i class="glyphicon glyphicon-pencil"></i> Alterar cadastro</a> | <a href="/logout" class="link-secundario"><i class="glyphicon glyphicon-remove"></i> Encerrar sessão</a></p>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
+</div>

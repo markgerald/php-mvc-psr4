@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form method="post" id="formLogin" class="form-horizontal" role="form"
+                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
+                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
+                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
+                >
+                <div  class="form-cadastro">
+                    <h4><i class="glyphicon glyphicon-user"></i> Novo Cadastro <span class="observacao-usuarios">*Campos obrigatórios</span></h4>
+                    <hr>
+                    <?php if($this->view->erroEmail == true){ ?>
+                        <div class="alert alert-danger alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Erro!</strong> Email já utilizando em nosso sistema!
+                        </div>
+                    <?php } ?>
+                    <p>Preencha corretamente os campos abaixo para efetuar seu cadastro:</p>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nome<span class="asterisco">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" name="nome" class="form-control" placeholder="Nome"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe o nome!"
+
+                                />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Email<span class="asterisco">*</span></label>
+                        <div class="col-sm-9">
+                            <input type="text" name="email" class="form-control" placeholder="E-mail"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe o email!"
+                                   data-bv-emailaddress="true"
+                                   data-bv-emailaddress-message="Informe um email válido!"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Celular</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="celular" class="form-control" placeholder="Celular"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe o celular!"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Mailing</label>
+                        <div class="checkbox col-sm-5 sem-padding">
+                            <input type="checkbox" name="mailing" value="1"> Receber notícias
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Senha<span class="asterisco">*</span></label>
+                        <div class="col-sm-5">
+                            <input type="password" name="senha" id="senha" class="form-control" placeholder="Senha"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor informe a senha!"
+                                   data-bv-identical="true"
+                                   data-bv-identical-field="conf_senha"
+                                   data-bv-identical-message="As Senhas não são iguais;"
+                                   data-bv-stringlength="true"
+                                   data-bv-stringlength-min="8"
+                                   data-bv-stringlength-max="15"
+                                   data-bv-stringlength-message="A Senha deve ter entre 8 a 15 caracteres e conter letras e números"
+                                />
+                        </div>
+                        <div class="col-sm-4 sem-padding">
+                            <i class="icone-tooltip" data-toggle="tooltip" data-placement="top" title="A senha deve ter entre 8 a 15 caracteres e conter letras e números."><img src="/images/icone-duvida.gif" width="15" height="11"/></i>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Confirmar<span class="asterisco">*</span></label>
+                        <div class="col-sm-5">
+                            <input type="password" name="conf_senha" id="conf_senha" class="form-control" placeholder="Confirme senha"
+                                   data-bv-notempty="true"
+                                   data-bv-notempty-message="Por favor confirme a senha!"
+                                   data-bv-identical="true"
+                                   data-bv-identical-field="senha"
+                                   data-bv-identical-message="As Senhas não são iguais;"
+                                   data-bv-stringlength="true"
+                                   data-bv-stringlength-min="8"
+                                   data-bv-stringlength-max="15"
+                                   data-bv-stringlength-message="A Senha deve ter entre 8 a 15 caracteres e conter letras e números"
+                                />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12" style="padding-right:20px;">
+                            <button type="submit" class="btn btn-principal">Confirmar</button>
+                            <a class="btn btn-default" href="#">Restaurar</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
