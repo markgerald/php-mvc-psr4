@@ -1,14 +1,22 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form method="post" id="formLogin" class="form-horizontal" role="form"
+<?php
+if (isset($this->view->sucesso)){
+    if($this->view->sucesso == true){
+        header("Location:/artigos?editok=1"); exit;
+    }} ?>
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="editarModalLabel">Editar Artigo</h4>
+    </div>
+    <div class="modal-body">
+            <form action="/artigo/edit" method="post" id="formLogin" class="form-horizontal" role="form"
                   data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                   data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
                   data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
                 >
                 <input type="hidden" name="id" value="<?php echo $this->view->dados['id'] ?>">
                 <div  class="form-cadastro">
-                    <h4><i class="glyphicon glyphicon-user"></i> Novo Artigo <span class="observacao-usuarios">*Campos obrigatórios</span></h4>
+                    <h4><i class="glyphicon glyphicon-user"></i> Editar Artigo <span class="observacao-usuarios">*Campos obrigatórios</span></h4>
                     <hr>
                     <p>Preencha corretamente os campos abaixo para cadastrar o artigo:</p>
                     <div class="form-group">
@@ -17,6 +25,7 @@
                             <input type="text" name="titulo" class="form-control" placeholder="Titulo do Artigo"
                                    data-bv-notempty="true"
                                    data-bv-notempty-message="Por favor informe o titulo!"
+                                   required="required"
                                    value="<?php echo $this->view->dados['titulo'] ?>"
                                 />
                         </div>
@@ -27,7 +36,7 @@
                             <textarea name="texto" placeholder="Texto do Artigo" class="form-control"
                                       data-bv-notempty="true"
                                       data-bv-notempty-message="Por favor informe o texto!"
-                                ><?php echo $this->view->dados['texto'] ?></textarea>
+                                      required="required" ><?php echo $this->view->dados['texto'] ?></textarea>
                         </div>
                     </div>
 
@@ -35,23 +44,20 @@
                         <label class="col-sm-2 control-label">Status</label>
                         <div class="checkbox col-sm-5 sem-padding">
                             <?php if($this->view->dados['ativo'] == 1){ ?>
-                                <input type="checkbox" name="mailing" value="1" checked> Ativo
+                                <input type="checkbox" name="ativo" value="1" checked> Ativo
                             <?php } else {?>
-                                <input type="checkbox" name="mailing" value="1"> Ativo
+                                <input type="checkbox" name="ativo" value="1"> Ativo
                             <?php } ?>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="col-sm-12" style="padding-right:20px;">
-                            <button type="submit" class="btn btn-principal">Confirmar</button>
+                            <button type="submit" class="btn btn-principal">Salvar</button>
                             <button type="reset" class="btn btn-default">Restaurar</button>
                         </div>
                     </div>
                 </div>
             </form>
             <p></p>
-            <a href="/artigos" class="btn btn-info">Voltar</a>
-        </div>
     </div>
-</div>

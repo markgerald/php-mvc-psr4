@@ -1,7 +1,19 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <form method="post" id="formLogin" class="form-horizontal" role="form"
+<?php
+if (isset($this->view->sucesso)){
+    if($this->view->sucesso == true){
+        header("Location:/artigos?saveok=1"); exit;
+        }} ?>
+
+<!-- Modal -->
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="adicionarModalLabel">Adicionar Artigo</h4>
+            </div>
+            <div class="modal-body">
+
+            <form action="/artigo/novo" method="post" id="formNovoArtigos" class="form-horizontal" role="form"
                   data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
                   data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
                   data-bv-feedbackicons-validating="glyphicon glyphicon-refresh"
@@ -15,7 +27,7 @@
                         <div class="col-sm-9">
                             <input type="text" name="titulo" class="form-control" placeholder="Titulo do Artigo"
                                    data-bv-notempty="true"
-                                   data-bv-notempty-message="Por favor informe o titulo!"
+                                   data-bv-notempty-message="Por favor informe o titulo!" required="required"
 
                                 />
                         </div>
@@ -26,7 +38,7 @@
                             <textarea name="texto" placeholder="Texto do Artigo" class="form-control"
                                       data-bv-notempty="true"
                                       data-bv-notempty-message="Por favor informe o texto!"
-                                ></textarea>
+                                required="required"></textarea>
                         </div>
                     </div>
 
@@ -46,8 +58,5 @@
                     </div>
                 </div>
             </form><p></p>
-            <a href="/artigos" class="btn btn-info">Voltar</a>
-        </div>
 
-    </div>
-</div>
+        </div>

@@ -39,7 +39,6 @@ abstract class Action {
     protected function content() {
         $atual = get_class($this);
         $singleClassName = strtolower(str_replace("App\\Controllers\\", "", $atual));
-        //echo getcwd() . "\n";die;
         include_once '../src/App/views/' . $singleClassName . '/' . $this->action . '.phtml';
     }
 

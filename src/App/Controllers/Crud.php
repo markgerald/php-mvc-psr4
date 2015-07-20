@@ -47,8 +47,7 @@ trait Crud {
        
        if(count($_POST)) {
            $model->save($_POST);
-           //$this->view->sucesso = true;
-           header("Location:/artigos?editaok=1"); exit;
+           $this->view->sucesso = true;
        }
        
        if(isset($_GET['id'])) {

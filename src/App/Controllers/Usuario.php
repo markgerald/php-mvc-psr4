@@ -22,10 +22,8 @@ class Usuario extends Action
      */
     public function cadastro()
     {
-        $servidor = &$_SERVER["SERVER_NAME"];
 
         $this->view->erroEmail = false;
-
 
         if(count($_POST)) {
             $model = Container::getClass($this->model);
@@ -38,7 +36,7 @@ class Usuario extends Action
             }
 
             if(isset($salvar))
-                header("location:http://$servidor/usuario/confirmacao?id=$salvar");
+                header("location:/usuario/confirmacao?id=$salvar");
 
         }
         $this->render("cadastro");
@@ -55,11 +53,11 @@ class Usuario extends Action
         $swift = new SendMail();
         $confMail = $swift->configuraSwift();
 
-        if(isset($_GET['id'])) {
+        $id = $_GET['id'];
 
-            $this->view->usuario = $model->find($_GET['id']);
+        if(isset($id)) {
 
-            $id = $_GET['id'];
+            $this->view->usuario = $model->find($id);
 
             $nome = $this->view->usuario['nome'];
 
@@ -67,12 +65,15 @@ class Usuario extends Action
                 'nome' => $this->view->usuario['nome'],
                 'email'=> $this->view->usuario['email']
             ];
+
             $assunto = "Confirmação de Cadastro";
             $destinatario = "mark.g.martins@gmail.com";
 
+            $servidor = &$_SERVER["SERVER_NAME"];
+
             $mensagemHtml = "
                 Olá $nome,</br>
-                Você se cadastrou em nosso sistema, segue a seguir link para ativação: http://localhost.phpmvc/assinante/ativacao?id=$id
+                Você se cadastrou em nosso sistema, segue a seguir link para ativação: http://$servidor/assinante/ativacao?id=$id
                 ";
 
             $swift->enviaHtml($confMail['messageInstance'], $confMail['mailerInstance'],$assunto,$destinatario,$mensagemHtml,$dados);
@@ -87,11 +88,8 @@ class Usuario extends Action
     public function assinante()
     {
         if (!isset($_SESSION)) session_start();
-
         if (!isset($_SESSION['id'])) {
-
             session_destroy();
-
             header("Location:/"); exit;
         }
 
@@ -103,14 +101,11 @@ class Usuario extends Action
         $model = Container::getClass($this->model);
 
         if(count($_POST)) {
-            //print_r($_POST);die;
             $salvar = $model->save($_POST);
 
             if(isset($salvar))
                 header("location:/assinante/confirma-alteracao?id=$salvar");
-
         }
-
 
         $this->render("assinante");
     }
@@ -123,13 +118,12 @@ class Usuario extends Action
         if (!isset($_SESSION)) session_start();
 
         if (!isset($_SESSION['id'])) {
-
             session_destroy();
-
             header("Location:/"); exit;
         }
 
         $model = Container::getClass($this->model);
+
         if(isset($_SESSION['id'])) {
             $this->view->usuario = $model->find($_SESSION['id']);
         }
@@ -152,8 +146,7 @@ class Usuario extends Action
 
             if($this->view->usuario['ativo'] == 1) {
                 $this->view->erro = true;
-            }
-            else {
+            } else {
                 $model->_activate($_GET['id']);
 
                 $confirmaLogin = $model->find($_GET['id']);
@@ -168,7 +161,6 @@ class Usuario extends Action
                 }
 
             }
-
 
         }
 
@@ -186,8 +178,6 @@ class Usuario extends Action
         if(count($_POST)) {
 
             $usuario = $model->findByEmail($_POST['email']);
-
-            //print_r($usuario);die;
 
             if($usuario['rows'] > 0){
                 $id = $usuario['fetch']['id'];

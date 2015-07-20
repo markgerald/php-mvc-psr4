@@ -32,7 +32,9 @@ class Usuarios extends Table {
         $stmt->bindParam(":email", $data['email']);
         $stmt->bindParam(":celular", $data['celular']);
         $stmt->bindParam(":mailing", $data['mailing']);
+        //Crypt Senha
         $senha = md5(sha1(base64_encode($data['senha'])));
+
         $stmt->bindParam(":senha", $senha);
         $stmt->bindParam(":ativo", $data['ativo']);
         $dt = new \DateTime();

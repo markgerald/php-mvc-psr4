@@ -21,12 +21,12 @@ class Artigos extends Table {
      */
     protected function _insert(array $data) {
         $stmt = $this->db->prepare(
-            "Insert into ".$this->getTable()."
-            (titulo,texto,ativo,data_cadastro) Values(:titulo, :texto, :ativo, :mailing, :senha, :ativo, :data_cadastro)"
+            "INSERT INTO ".$this->getTable().
+            "(titulo,texto,ativo,data_cadastro) VALUES(:titulo, :texto, :ativo,:data_cadastro)"
         );
-        $stmt->bindParam(":nome", $data['titulo']);
-        $stmt->bindParam(":email", $data['texto']);
-        $stmt->bindParam(":celular", $data['ativo']);
+        $stmt->bindParam(":titulo", $data['titulo']);
+        $stmt->bindParam(":texto", $data['texto']);
+        $stmt->bindParam(":ativo", $data['ativo']);
         $dt = new \DateTime();
         $agora =$dt->format('Y-m-d H:i:s');
         $stmt->bindParam(":data_cadastro",$agora);
@@ -39,14 +39,15 @@ class Artigos extends Table {
      * @return mixed
      */
     protected function _update(array $data) {
-        $stmt = $this->db->prepare("update ".$this->getTable()."
-            set titulo=:titulo, texto=:texto, ativo=:ativo where id=:id"
+        $stmt = $this->db->prepare("UPDATE ".$this->getTable()."
+            SET titulo=:titulo, texto=:texto, ativo=:ativo WHERE id=:id"
         );
         $stmt->bindParam(":id", $data['id']);
-        $stmt->bindParam(":nome", $data['titulo']);
-        $stmt->bindParam(":email", $data['texto']);
-        $stmt->bindParam(":celular", $data['email']);
+        $stmt->bindParam(":titulo", $data['titulo']);
+        $stmt->bindParam(":texto", $data['texto']);
+        $stmt->bindParam(":ativo", $data['ativo']);
         $stmt->execute();
+
         return $data['id'];
     }
 
@@ -55,8 +56,8 @@ class Artigos extends Table {
      * @return mixed
      */
     public function _activate($id) {
-        $stmt = $this->db->prepare("update ".$this->getTable()."
-            set ativo=:ativo where id=:id"
+        $stmt = $this->db->prepare("UPDATE ".$this->getTable()."
+            SET ativo=:ativo where id=:id"
         );
         $ativo = 1;
         $stmt->bindParam(":id", $id);

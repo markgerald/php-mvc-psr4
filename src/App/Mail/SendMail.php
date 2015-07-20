@@ -17,10 +17,10 @@ class SendMail
 
         $mailer = \Swift_Mailer::newInstance($transport);
 
-        $transport->setHost('mail.gerald.eti.br')
-            ->setPort(587)
-            ->setUsername('mark@gerald.eti.br')
-            ->setPassword('master12')
+        $transport->setHost('mail.seudominio.com.br')
+            ->setPort(587)//Configurar Porta
+            ->setUsername('email@seudominio.com.br')
+            ->setPassword('Senha')
             ->setAuthMode('login');
 
         $message = \Swift_Message::newInstance($transport);
