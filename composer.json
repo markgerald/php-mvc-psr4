@@ -1,5 +1,5 @@
 {
-    "name": "tivit/mvc",
+    "name": "mark/mvc",
     "require": {
         "php": ">=5.3",
         "swiftmailer/swiftmailer": "^5.4"
@@ -12,7 +12,7 @@
     "authors": [
         {
             "name": "Mark Gerad Martins",
-            "email": "mark.martins.ext@tivit.com.br"
+            "email": "mark@gerald.eti.br"
         }
     ],
     "autoload": {
