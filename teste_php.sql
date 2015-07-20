@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2015 at 06:22 PM
+-- Generation Time: Jul 20, 2015 at 04:02 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -23,6 +23,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `artigos`
+--
+
+CREATE TABLE IF NOT EXISTS `artigos` (
+  `id` int(11) NOT NULL,
+  `titulo` varchar(100) DEFAULT NULL,
+  `texto` varchar(255) DEFAULT NULL,
+  `data_cadastro` datetime NOT NULL,
+  `ativo` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `usuarios`
 --
 
@@ -36,18 +50,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `ativo` int(11) DEFAULT NULL,
   `data_cadastro` datetime DEFAULT NULL,
   `data_ativacao` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `celular`, `mailing`, `senha`, `ativo`, `data_cadastro`, `data_ativacao`) VALUES
-(26, 'Mark Gerald Martins', 'mark.g.martins@gmail.com', '11994579418', NULL, '8f0e9a3c719c75f7f84ee92dab6a758c', 1, '2015-07-17 16:42:47', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `artigos`
+--
+ALTER TABLE `artigos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `usuarios`
@@ -60,10 +73,15 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT for table `artigos`
+--
+ALTER TABLE `artigos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
