@@ -155,6 +155,7 @@ class Usuario extends Action
 
                     if (!isset($_SESSION)) session_start();
 
+                    $_SESSION['email'] = $confirmaLogin['nome'];
                     $_SESSION['email'] = $confirmaLogin['email'];
                     $_SESSION['id'] = $confirmaLogin['id'];
 
