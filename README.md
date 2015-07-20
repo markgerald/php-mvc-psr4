@@ -10,4 +10,8 @@ criar virtual host apotando para pasta public ou executar o php a partir da past
 
 Executar *composer install* para instalar dependências.
 
+Alterar arquivo App/Di/Container.php para configurar acesso ao MySQL.
+
+Alterar Arquivo App/Mail/SendMail.php para configurar os dados de smtp.
+
 
