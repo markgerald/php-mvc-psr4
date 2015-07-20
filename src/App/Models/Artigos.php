@@ -51,19 +51,5 @@ class Artigos extends Table {
         return $data['id'];
     }
 
-    /**
-     * @param array $data
-     * @return mixed
-     */
-    public function _activate($id) {
-        $stmt = $this->db->prepare("UPDATE ".$this->getTable()."
-            SET ativo=:ativo where id=:id"
-        );
-        $ativo = 1;
-        $stmt->bindParam(":id", $id);
-        $stmt->bindParam(":ativo", $ativo);
-        $stmt->execute();
-        return $id;
-    }
 
 }
