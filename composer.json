@@ -2,7 +2,8 @@
     "name": "mark/mvc",
     "require": {
         "php": ">=5.4",
-        "swiftmailer/swiftmailer": "^5.4"
+        "swiftmailer/swiftmailer": "^5.4",
+        "symfony/dotenv": "^3.3"
     },
     "minimum-stability": "alpha",
     "authors": [

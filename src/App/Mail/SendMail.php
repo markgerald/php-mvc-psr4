@@ -14,15 +14,12 @@ class SendMail
     public function configuraSwift()
     {
         $transport = \Swift_SmtpTransport::newInstance();
-
         $mailer = \Swift_Mailer::newInstance($transport);
-
-        $transport->setHost('mail.seudominio.com.br')
-            ->setPort(587)//Configurar Porta
-            ->setUsername('email@seudominio.com.br')
-            ->setPassword('Senha')
+        $transport->setHost(getenv('SWIFTMAILER_HOST'))
+            ->setPort(getenv('SWIFTMAILER_PORT'))//Configurar Porta
+            ->setUsername(getenv('SWIFTMAILER_USERNAME'))
+            ->setPassword(getenv('SWIFTMAILER_PASSWORD'))
             ->setAuthMode('login');
-
         $message = \Swift_Message::newInstance($transport);
 
         return array(
@@ -56,7 +53,5 @@ class SendMail
             ->setBody($mensagemHtml,"text/html");
 
         return $mailer->send($message);
-
     }
-
 }

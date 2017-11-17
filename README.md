@@ -4,14 +4,11 @@ Projeto modelo de utilização da PSR4 para Autoload. Neste modelo, também há 
 
 Exemplo de envio de email via smtp utilizando o *SwiftMailer*.
 
-arquivo sql presente na pasta raiz, para criação das 2 tabelas utilizadas no modelo.
-
-criar virtual host apotando para pasta public ou executar o php a partir da pasta public.
-
-Executar *composer install* para instalar dependências.
-
-Alterar arquivo src/App/Di/Container.php para configurar acesso ao MySQL.
-
-Alterar Arquivo src/App/Mail/SendMail.php para configurar os dados de smtp.
+## Instalação ambiente Docker (PHP7.1 - MySQL 5.7)
+- na pasta raiz do projeto, rodar comando "docker-compose up -d --build"
+- Editar arquivo 'hosts' de sua máquina, incluindo o host "www.phpmvc.local" para o ip do docker(normalmente é 127.0.0.1).
+- copiar arquivo .env-example como ".env". Editar informações a respeito de servidor de email(smtp). Não alterar os dados de banco de dados.
+- acesse http://www.phpmvc.local:8081 em seu browser para verificar a aplicação.
 
 
+PS: phpmyadmin rodando em http://localhost:8082 com user e pass do arquivo .env
