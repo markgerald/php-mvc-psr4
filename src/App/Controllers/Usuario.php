@@ -69,11 +69,11 @@ class Usuario extends Action
             $assunto = "Confirmação de Cadastro";
             $destinatario = "mark.g.martins@gmail.com";
 
-            $servidor = &$_SERVER["SERVER_NAME"];
+            $servidor = getenv('WEBSITE_HOST');
 
             $mensagemHtml = "
                 Olá $nome,</br>
-                Você se cadastrou em nosso sistema, segue a seguir link para ativação: http://$servidor/assinante/ativacao?id=$id
+                Você se cadastrou em nosso sistema, segue a seguir link para ativação: $servidor/assinante/ativacao?id=$id
                 ";
 
             $swift->enviaHtml($confMail['messageInstance'], $confMail['mailerInstance'],$assunto,$destinatario,$mensagemHtml,$dados);
@@ -155,7 +155,7 @@ class Usuario extends Action
 
                     if (!isset($_SESSION)) session_start();
 
-                    $_SESSION['email'] = $confirmaLogin['nome'];
+                    $_SESSION['nome'] = $confirmaLogin['nome'];
                     $_SESSION['email'] = $confirmaLogin['email'];
                     $_SESSION['id'] = $confirmaLogin['id'];
 
