@@ -9,7 +9,7 @@ namespace App\Init;
 abstract class Bootstrap {
 
     /**
-     * @var string
+     * @var array
      */
     protected $routes;
 
@@ -36,7 +36,8 @@ abstract class Bootstrap {
             if($url==$route['route']) {
                 $class = "App\\Controllers\\".ucfirst($route['controller']);
                 $controller = new $class;
-                $controller->$route['action']();
+                $action = (string) $route['action'];
+                $controller->$action();
             }
         });
     }
