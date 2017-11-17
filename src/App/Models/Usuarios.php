@@ -8,7 +8,8 @@ use App\Db\Table;
  * Class Usuarios
  * @package App\Models
  */
-class Usuarios extends Table {
+class Usuarios extends Table
+{
 
     /**
      * @var string
@@ -24,7 +25,8 @@ class Usuarios extends Table {
      * @param array $data
      * @return string
      */
-    protected function _insert(array $data) {
+    protected function _insert(array $data)
+    {
         $stmt = $this->db->prepare(
             "Insert into ".$this->getTable()." (nome,email,celular, mailing, senha, ativo, data_cadastro) Values(:nome, :email, :celular, :mailing, :senha, :ativo, :data_cadastro)"
         );
@@ -48,7 +50,8 @@ class Usuarios extends Table {
      * @param array $data
      * @return mixed
      */
-    protected function _update(array $data) {
+    protected function _update(array $data)
+    {
         $stmt = $this->db->prepare("update ".$this->getTable()."
             set nome=:nome, email=:email, celular=:celular, mailing=:mailing where id=:id"
         );
@@ -65,7 +68,8 @@ class Usuarios extends Table {
      * @param array $data
      * @return mixed
      */
-    public function _activate($id) {
+    public function _activate($id)
+    {
         $stmt = $this->db->prepare("update ".$this->getTable()."
             set ativo=:ativo where id=:id"
         );

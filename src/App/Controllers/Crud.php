@@ -6,7 +6,8 @@ use App\Di\Container;
 
 trait Crud {
 
-    public function index() {
+    public function index()
+    {
 
         if (!isset($_SESSION)) session_start();
         if (!isset($_SESSION['id'])) {
@@ -19,7 +20,8 @@ trait Crud {
         $this->render("index");
     }
 
-   public function novo() {
+   public function novo()
+   {
 
        if (!isset($_SESSION)) session_start();
        if (!isset($_SESSION['id'])) {
@@ -35,7 +37,8 @@ trait Crud {
        $this->render("novo");
    }
    
-   public function edit() {
+   public function edit()
+   {
 
        if (!isset($_SESSION)) session_start();
        if (!isset($_SESSION['id'])) {
@@ -58,7 +61,8 @@ trait Crud {
 
    }
    
-   public function delete() {
+   public function delete()
+   {
 
        if (!isset($_SESSION)) session_start();
        if (!isset($_SESSION['id'])) {

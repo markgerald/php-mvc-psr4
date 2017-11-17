@@ -17,7 +17,8 @@ abstract class Action {
      */
     protected $view;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->view = new \stdClass();
     }
 
@@ -25,7 +26,8 @@ abstract class Action {
      * @param $view
      * @param bool $layout
      */
-    protected function render($view, $layout=true) {
+    protected function render($view, $layout=true)
+    {
         $this->action = $view;
         if($layout==true && file_exists("../src/App/views/layout.phtml"))
             include_once '../src/App/views/layout.phtml';
@@ -36,7 +38,8 @@ abstract class Action {
     /**
      * Método de montagem de conteúdo a partir de controller e view.
      */
-    protected function content() {
+    protected function content()
+    {
         $atual = get_class($this);
         $singleClassName = strtolower(str_replace("App\\Controllers\\", "", $atual));
         include_once '../src/App/views/' . $singleClassName . '/' . $this->action . '.phtml';

@@ -11,7 +11,8 @@ class Container {
     /**
      * @return \PDO
      */
-    private static function getDb() {
+    private static function getDb()
+    {
         $db = new \PDO(
             "mysql:host=" . getenv('MYSQL_HOST') .
             ";dbname=" . getenv('MYSQL_DATABASE'),

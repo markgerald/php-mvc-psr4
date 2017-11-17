@@ -6,7 +6,8 @@ namespace App\Db;
  * Class Table
  * @package App\Db
  */
-abstract class Table {
+abstract class Table
+{
 
     /**
      * @var \PDO
@@ -19,7 +20,8 @@ abstract class Table {
     protected $table;
 
 
-    public function __construct(\PDO $db) {
+    public function __construct(\PDO $db)
+    {
         $this->db = $db;
     }
 
@@ -57,7 +59,8 @@ abstract class Table {
      * @param array $data
      * @return mixed
      */
-    public function save(array $data) {
+    public function save(array $data)
+    {
         if (!isset($data['id'])) {
             return $this->_insert($data);
         } else {

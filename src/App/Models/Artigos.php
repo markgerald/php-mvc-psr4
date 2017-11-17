@@ -8,7 +8,8 @@ use App\Db\Table;
  * Class Artigos
  * @package App\Models
  */
-class Artigos extends Table {
+class Artigos extends Table
+{
 
     /**
      * @var string
@@ -19,7 +20,8 @@ class Artigos extends Table {
      * @param array $data
      * @return string
      */
-    protected function _insert(array $data) {
+    protected function _insert(array $data)
+    {
         $stmt = $this->db->prepare(
             "INSERT INTO ".$this->getTable().
             "(titulo,texto,ativo,data_cadastro) VALUES(:titulo, :texto, :ativo,:data_cadastro)"
@@ -38,7 +40,8 @@ class Artigos extends Table {
      * @param array $data
      * @return mixed
      */
-    protected function _update(array $data) {
+    protected function _update(array $data)
+    {
         $stmt = $this->db->prepare("UPDATE ".$this->getTable()."
             SET titulo=:titulo, texto=:texto, ativo=:ativo WHERE id=:id"
         );
