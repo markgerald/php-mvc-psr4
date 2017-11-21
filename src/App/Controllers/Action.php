@@ -6,7 +6,8 @@ namespace App\Controllers;
  * Class Action
  * @package App\Controllers
  */
-abstract class Action {
+abstract class Action 
+{
 
     /**
      * @var string
