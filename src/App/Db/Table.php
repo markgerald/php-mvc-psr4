@@ -72,7 +72,8 @@ abstract class Table
      * @param $id
      * @return mixed
      */
-    public function find($id) {
+    public function find($id) 
+    {
         $stmt = $this->db->prepare("select * from ".$this->getTable()." where id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -83,7 +84,8 @@ abstract class Table
      * @param $id
      * @return bool
      */
-    public function delete($id) {
+    public function delete($id) 
+    {
         $stmt = $this->db->prepare("delete from ".$this->getTable()." where id=:id");
         $stmt->bindParam(":id", $id);
         $stmt->execute();
@@ -93,7 +95,8 @@ abstract class Table
     /**
      * @return array
      */
-    public function fetchAll() {
+    public function fetchAll() 
+    {
         $stmt = $this->db->prepare("select * from ".$this->getTable());
         $stmt->execute();
         return $stmt->fetchAll();
