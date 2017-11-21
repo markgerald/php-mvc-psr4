@@ -28,7 +28,9 @@ class Usuarios extends Table
     protected function _insert(array $data)
     {
         $stmt = $this->db->prepare(
-            "Insert into ".$this->getTable()." (nome,email,celular, mailing, senha, ativo, data_cadastro) Values(:nome, :email, :celular, :mailing, :senha, :ativo, :data_cadastro)"
+            "Insert into ".$this->getTable().
+            " (nome,email,celular, mailing, senha, ativo, data_cadastro) 
+            Values(:nome, :email, :celular, :mailing, :senha, :ativo, :data_cadastro)"
         );
         $stmt->bindParam(":nome", $data['nome']);
         $stmt->bindParam(":email", $data['email']);
@@ -36,13 +38,13 @@ class Usuarios extends Table
         $stmt->bindParam(":mailing", $data['mailing']);
         //Crypt Senha
         $senha = md5(sha1(base64_encode($data['senha'])));
-
         $stmt->bindParam(":senha", $senha);
         $stmt->bindParam(":ativo", $data['ativo']);
         $dt = new \DateTime();
         $agora =$dt->format('Y-m-d H:i:s');
         $stmt->bindParam(":data_cadastro",$agora);
         $stmt->execute();
+
         return $this->db->lastInsertId();
     }
 
@@ -65,7 +67,7 @@ class Usuarios extends Table
     }
 
     /**
-     * @param array $data
+     * @param integer $id
      * @return mixed
      */
     public function _activate($id)
@@ -81,28 +83,29 @@ class Usuarios extends Table
     }
 
     /**
-     * @param $email
-     * @param $senha
+     * @param string $email
+     * @param string $senha
      * @return array
      */
     public function _login($email, $senha)
     {
-
-        $stmt = $this->db->prepare("select * from ".$this->getTable()." where email=:email and senha=:senha and ativo=:ativo");
+        $stmt = $this->db->prepare(
+            "select * from ".$this->getTable()." where email=:email and senha=:senha and ativo=:ativo"
+        );
         $ativo = 1;
         $stmt->bindParam(":senha", $senha);
         $stmt->bindParam(":email", $email);
         $stmt->bindParam(":ativo", $ativo);
         $stmt->execute();
 
-        return array(
+        return [
             'fetch' => $stmt->fetch(),
             'rows'  => $stmt->rowCount()
-        );
+        ];
     }
 
     /**
-     * @param $email
+     * @param string $email
      * @return array
      */
     public function findByEmail($email)
@@ -116,7 +119,4 @@ class Usuarios extends Table
             'rows'  => $stmt->rowCount()
         );
     }
-
-
-
 }

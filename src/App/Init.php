@@ -10,7 +10,6 @@ use App\Init\Bootstrap;
  */
 class Init extends Bootstrap
 {
-
     /**
      * Método para setar rotas, baseadas em controlers e actions
      */
@@ -26,18 +25,12 @@ class Init extends Bootstrap
         $ar['ativacao'] = ['route' => '/assinante/ativacao', 'controller' => 'usuario', 'action' => 'ativacao'];
         $ar['esqueceu-senha'] = ['route' => '/usuario/esqueceu', 'controller' => 'usuario', 'action' => 'esqueceu'];
         $ar['senha-enviada'] = ['route' => '/usuario/senha-enviada', 'controller' => 'usuario', 'action' => 'enviosenha'];
-
         //Artigos Route
         $ar['artigos'] = ['route' => '/artigos', 'controller' => 'artigos', 'action' => 'index'];
         $ar['artigo-novo'] = ['route' => '/artigo/novo', 'controller' => 'artigos', 'action' => 'novo'];
         $ar['artigo-edit'] = ['route' => '/artigo/edit', 'controller' => 'artigos', 'action' => 'edit'];
         $ar['artigo-delete'] = ['route' => '/artigo/delete', 'controller' => 'artigos', 'action' => 'delete'];
 
-
-
         $this->setRoutes($ar);
     }
-
-
-
 }

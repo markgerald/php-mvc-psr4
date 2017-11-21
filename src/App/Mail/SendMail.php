@@ -22,10 +22,10 @@ class SendMail
             ->setAuthMode('login');
         $message = \Swift_Message::newInstance($transport);
 
-        return array(
+        return [
             'mailerInstance' => $mailer,
             'messageInstance' => $message
-        );
+        ];
     }
 
     /**
@@ -40,16 +40,8 @@ class SendMail
     public function enviaHtml($message, $mailer, $assunto, $destinatario, $mensagemHtml, array $dados)
     {
         $message->setSubject($assunto)
-            ->setFrom(
-                array(
-                    $dados['email'] => $dados['nome']
-                )
-            )
-            ->setTo(
-                array(
-                    $destinatario
-                )
-            )
+            ->setFrom([$dados['email'] => $dados['nome']])
+            ->setTo([$destinatario])
             ->setBody($mensagemHtml,"text/html");
 
         return $mailer->send($message);

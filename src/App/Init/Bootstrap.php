@@ -59,5 +59,4 @@ abstract class Bootstrap {
      * @return mixed
      */
     abstract protected function initRoutes();
-
 }

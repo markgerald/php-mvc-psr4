@@ -200,7 +200,5 @@ class Usuario extends Action
         }
 
         $this->render("enviosenha");
-
     }
-
 }

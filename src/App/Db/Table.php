@@ -8,7 +8,6 @@ namespace App\Db;
  */
 abstract class Table
 {
-
     /**
      * @var \PDO
      */
@@ -101,5 +100,4 @@ abstract class Table
         $stmt->execute();
         return $stmt->fetchAll();
     }
-
 }

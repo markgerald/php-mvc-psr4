@@ -1,14 +1,20 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Traits;
 
 use App\Di\Container;
 
+/**
+ * Trait Crud
+ * @package App\Traits
+ */
 trait Crud {
 
+    /**
+     * Método de listagem padrão
+     */
     public function index()
     {
-
         if (!isset($_SESSION)) session_start();
         if (!isset($_SESSION['id'])) {
             session_destroy();
@@ -20,6 +26,9 @@ trait Crud {
         $this->render("index");
     }
 
+    /**
+     * Método de adicionar item padrão
+     */
    public function novo()
    {
 
@@ -36,7 +45,10 @@ trait Crud {
        }
        $this->render("novo");
    }
-   
+
+    /**
+     * Método de edição de item padrão
+     */
    public function edit()
    {
 
@@ -60,7 +72,10 @@ trait Crud {
        $this->render("edit");
 
    }
-   
+
+    /**
+     * Método de exclusão de item padrão
+     */
    public function delete()
    {
 
@@ -74,8 +89,7 @@ trait Crud {
            $model = Container::getClass($this->model);
            $model->delete($_GET['id']);
            header("Location:/artigos?deleteok=1"); exit;
-           //$this->render("delete");
+
        }
    }
-
 }

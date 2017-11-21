@@ -25,25 +25,16 @@ class Index extends Action
 
         if(count($_POST)) {
             $senha = md5(sha1(base64_encode($_POST['senha'])));
-
             $confirmaLogin = $model->_login($_POST['email'], $senha);
-
             if ($confirmaLogin['rows'] == 1){
-
                 if (!isset($_SESSION)) session_start();
-
                 $_SESSION['email'] = $confirmaLogin['fetch']['email'];
                 $_SESSION['id'] = $confirmaLogin['fetch']['id'];
                 $_SESSION['nome'] = $confirmaLogin['fetch']['nome'];
-
                 header('location:/dashboard');
-
             } else {
-
                 $this->view->erro = true;
-
             }
-
         }
 
         $this->render("index");
@@ -63,11 +54,8 @@ class Index extends Action
     public function dashboard()
     {
         if (!isset($_SESSION)) session_start();
-
         if (!isset($_SESSION['id'])) {
-
             session_destroy();
-
             header("Location:/"); exit;
         }
 
