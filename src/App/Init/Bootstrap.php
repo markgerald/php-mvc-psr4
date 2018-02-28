@@ -6,7 +6,8 @@ namespace App\Init;
  * Class Bootstrap
  * @package App\Init
  */
-abstract class Bootstrap {
+abstract class Bootstrap 
+{
 
     /**
      * @var array
@@ -32,7 +33,8 @@ abstract class Bootstrap {
     /**
      * @param $url
      */
-    protected function run($url) {
+    protected function run($url) 
+    {
         array_walk($this->routes, function($route) use($url)
         {
 
