@@ -14,7 +14,6 @@ abstract class Bootstrap
      */
     protected $routes;
 
-
     public function __construct()
     {
         $this->initRoutes();
@@ -37,7 +36,6 @@ abstract class Bootstrap
     {
         array_walk($this->routes, function($route) use($url)
         {
-
             if($url==$route['route']) {
                 $class = "App\\Controllers\\".ucfirst($route['controller']);
                 $controller = new $class;
@@ -50,7 +48,7 @@ abstract class Bootstrap
     /**
      * @return mixed
      */
-    protected function getUrl()
+    protected function getUrl(): string
     {
         $pattern = "#([a-zA-Z0-9\/]+)(\?.*)?#";
         $x = preg_replace($pattern,"$1",$_SERVER['REQUEST_URI']);

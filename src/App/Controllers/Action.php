@@ -33,7 +33,7 @@ abstract class Action
         if($layout==true && file_exists("../src/App/views/layout.phtml"))
             include_once '../src/App/views/layout.phtml';
         else
-            $this->content($view);
+            $this->content();
     }
 
     /**

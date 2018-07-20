@@ -2,6 +2,7 @@
 
 namespace App\Traits;
 
+use App\Controllers\Action;
 use App\Di\Container;
 
 /**
@@ -43,7 +44,7 @@ trait Crud {
            $model->save($_POST);
            $this->view->sucesso = true;
        }
-       $this->render("novo");
+       $this->render("novo", false);
    }
 
     /**
@@ -69,7 +70,7 @@ trait Crud {
            $this->view->dados = $model->find($_GET['id']);
        }
        
-       $this->render("edit");
+       $this->render("edit", false);
 
    }
 

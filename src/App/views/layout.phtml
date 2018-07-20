@@ -17,6 +17,8 @@
     <!-- Custom styles for this template -->
     <link href="/css/base.css" rel="stylesheet">
     <link href="/css/bootstrapValidator.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css"/>
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="/bootstrap-3.3.2/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -86,13 +88,40 @@
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="/bootstrap-3.3.2/js/ie10-viewport-bug-workaround.js"></script>
 <script src="/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 <script language="JavaScript">
     $(document).ready(function() {
         $('#formLogin').bootstrapValidator();
         $('#formEsqueceu').bootstrapValidator();
         $('#formLogin').bootstrapValidator();
         $('#formNovoArtigos').bootstrapValidator();
-
+        $(document).ready( function () {
+            $('#listTable').DataTable( {
+                "language": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "_MENU_ resultados por página",
+                    "sLoadingRecords": "Carregando...",
+                    "sProcessing": "Processando...",
+                    "sZeroRecords": "Nenhum registro encontrado",
+                    "sSearch": "Pesquisar",
+                    "oPaginate": {
+                        "sNext": "Próximo",
+                        "sPrevious": "Anterior",
+                        "sFirst": "Primeiro",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    }
+                }
+            });
+        } );
     });
 </script>
 </body>

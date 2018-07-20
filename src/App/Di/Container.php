@@ -6,7 +6,8 @@ namespace App\Di;
  * Class Container
  * @package App\Di
  */
-class Container {
+class Container
+{
 
     /**
      * @return \PDO
